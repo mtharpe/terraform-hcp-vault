@@ -2,7 +2,8 @@
 
 ## Requirements
 
-No requirements.
+Terraform Cloud or Terraform Enterprise
+HCP Vault
 
 ## Providers
 
