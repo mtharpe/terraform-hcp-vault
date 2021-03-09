@@ -5,8 +5,8 @@ resource "vault_aws_secret_backend" "aws" {
 }
 
 resource "vault_aws_secret_backend_role" "role" {
-  backend = vault_aws_secret_backend.aws.path
-  name    = "ec2"
+  backend         = vault_aws_secret_backend.aws.path
+  name            = "ec2"
   credential_type = "iam_user"
 
   policy_document = <<EOT
