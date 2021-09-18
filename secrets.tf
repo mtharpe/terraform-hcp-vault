@@ -15,4 +15,7 @@ resource "vault_generic_secret" "generic_secret" {
   "password": "generic-password"
 }
 EOT
+  depends_on = [
+    vault_mount.kv,
+  ]
 }
