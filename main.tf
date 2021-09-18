@@ -1,8 +1,7 @@
 provider "vault" {
   address   = data.terraform_remote_state.hcp.outputs.vault_public_address
-  token     = hcp_vault_cluster_admin_token.vault_root_token.token
+  token     = data.terraform_remote_state.hcp.outputs.vault_root_token
   namespace = "admin"
-
 }
 
 data "terraform_remote_state" "hcp" {
@@ -14,19 +13,4 @@ data "terraform_remote_state" "hcp" {
       name = "terraform-hcp-demo"
     }
   }
-}
-
-#########################################
-# Specify the provider and access details
-#########################################
-
-resource "hcp_hvn" "hvn" {
-  hvn_id         = "demo-hvn"
-  cloud_provider = "aws"
-  region         = "us-east-1"
-  cidr_block     = "172.20.16.0/20"
-}
-
-resource "hcp_vault_cluster_admin_token" "vault_root_token" {
-  cluster_id = "demo-vault-cluster"
 }
