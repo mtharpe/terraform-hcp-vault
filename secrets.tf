@@ -6,7 +6,7 @@ resource "vault_mount" "kv" {
   description = "Demo of KV-V2"
 }
 
-resource "vault_generic_endpoint" "generic_secret" {
+resource "vault_generic_secret" "generic_secret" {
   path = "secret/kv/generic"
 
   data_json = <<EOT
