@@ -26,7 +26,7 @@ EOT
 ## KV
 resource "vault_mount" "kv" {
   path        = "kv"
-  type        = "kv-v2"
-  # or type = "kv"
+  type        = "kv"
+  # or type = "kv-v2"
   description = "Demo of KV-V2"
 }
