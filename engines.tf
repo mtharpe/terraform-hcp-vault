@@ -30,10 +30,3 @@ resource "vault_mount" "kv" {
   # or type = "kv"
   description = "Demo of KV-V2"
 }
-
-resource "vault_mount" "kv_jenkins" {
-  path        = "kv/jenkins"
-  type        = "kv-v2"
-  # or type = "kv"
-  description = "Demo of KV-V2"
-}
