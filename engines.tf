@@ -22,3 +22,11 @@ resource "vault_aws_secret_backend_role" "role" {
 }
 EOT
 }
+
+## KV
+resource "vault_mount" "kv" {
+  path        = "kv"
+  type        = "kv-v2"
+  # or type = "kv"
+  description = "Demo of KV-V2"
+}
