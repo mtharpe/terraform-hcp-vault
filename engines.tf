@@ -26,3 +26,16 @@ EOT
 resource "vault_auth_backend" "username" {
   type = "userpass"
 }
+
+resource "vault_generic_endpoint" "tharpem" {
+  depends_on           = [vault_auth_backend.username]
+  path                 = "auth/userpass/users/tharpem"
+  ignore_absent_fields = true
+
+  data_json = <<EOT
+{
+  "policies": ["admin"],
+  "password": "${var.tharpem_pass}"
+}
+EOT
+}
