@@ -1,3 +1,5 @@
+[![Terraform Testing and Release](https://github.com/mtharpe/terraform-hcp-vault/actions/workflows/terraform.yml/badge.svg)](https://github.com/mtharpe/terraform-hcp-vault/actions/workflows/terraform.yml)
+
 # terraform-hcp-vault
 
 ## Requirements
