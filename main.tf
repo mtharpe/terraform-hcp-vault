@@ -1,6 +1,6 @@
 provider "vault" {
   address   = data.terraform_remote_state.hcp.outputs.vault_public_address
-  token     = data.terraform_remote_state.hcp.outputs.vault_root_token
+  token     = hcp_vault_cluster_admin_token.vault_root_token.token
   namespace = "admin"
 }
 
