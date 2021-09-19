@@ -4,6 +4,8 @@ provider "vault" {
   namespace = "admin"
 }
 
+provider "hcp" {}
+
 data "terraform_remote_state" "hcp" {
   backend = "remote"
 
@@ -13,4 +15,11 @@ data "terraform_remote_state" "hcp" {
       name = "terraform-hcp-demo"
     }
   }
+}
+
+resource "hcp_vault_cluster_admin_token" "vault_root_token" {
+  cluster_id = "demo-vault-cluster"
+  depends_on = [
+    hcp_vault_cluster.vault_cluster,
+  ]
 }
