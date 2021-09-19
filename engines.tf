@@ -22,3 +22,7 @@ resource "vault_aws_secret_backend_role" "role" {
 }
 EOT
 }
+
+resource "vault_auth_backend" "username" {
+  type = "userpass"
+}
