@@ -27,6 +27,7 @@ resource "vault_auth_backend" "username" {
   type = "userpass"
 }
 
+## UserPass Engine
 resource "vault_generic_endpoint" "tharpem" {
   depends_on           = [vault_auth_backend.username]
   path                 = "auth/userpass/users/tharpem"
