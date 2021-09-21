@@ -23,11 +23,20 @@ resource "vault_aws_secret_backend_role" "role" {
 EOT
 }
 
+## Azure Engine
+resource "vault_azure_secret_backend" "azure" {
+  subscription_id = var.azure_subscription_id
+  tenant_id       = var.azure_tenat_id
+  client_id       = var.azure_client_id
+  client_secret   = var.azure_client_secret
+  #environment     = "AzurePublicCloud"
+}
+
+## UserPass Engine
 resource "vault_auth_backend" "username" {
   type = "userpass"
 }
 
-## UserPass Engine
 resource "vault_generic_endpoint" "tharpem" {
   depends_on           = [vault_auth_backend.username]
   path                 = "auth/userpass/users/tharpem"
